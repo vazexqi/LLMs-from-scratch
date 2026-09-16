@@ -171,6 +171,7 @@ ch0?/0?_user_interface/.chainlit/
 ch0?/0?_user_interface/chainlit.md
 ch0?/0?_user_interface/.files
 *.lock
+!flake.lock
 
 # Temporary and OS-related files
 temp
@@ -231,6 +232,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+.ruff_cache/
 cover/
 
 # Translations
@@ -258,7 +260,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # IPython
 profile_default/
@@ -303,9 +305,10 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
+.venv/
+.direnv/
 .python-version
-uv.lock
+!/uv.lock
 pixi.lock
 env/
 venv/
@@ -350,4 +353,3 @@ cython_debug/
 # pixi environments
 .pixi
 *.egg-info
-

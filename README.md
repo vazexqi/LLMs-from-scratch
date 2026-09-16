@@ -94,6 +94,35 @@ The most important prerequisite is a strong foundation in Python programming.
 With this knowledge, you will be well prepared to explore the fascinating world of LLMs
 and understand the concepts and code examples presented in this book.
 
+### Nix, uv, and direnv development environment
+
+This checkout includes a reproducible development shell. Nix provides Python
+3.12, uv, direnv, Git, and native build discovery tools; uv installs the Python
+packages declared in `pyproject.toml`, including the development and bonus
+dependency groups.
+
+After installing Nix and enabling the [direnv shell hook](https://direnv.net/docs/hook.html)
+once, approve this repository:
+
+```bash
+direnv allow
+```
+
+Entering the directory then loads the Nix shell and runs
+`uv sync --all-groups --locked` automatically. The resulting `.venv` is added
+to `PATH`, so `python`, `pytest`, and `jupyter lab` use the project environment.
+Run `nix develop path:.` if you prefer to enter the shell without direnv.
+
+Start the local notebook server with:
+
+```bash
+jupyter lab
+```
+
+Jupyter normally opens its local URL automatically. Select a notebook in its
+file browser, or open one directly with `jupyter lab path/to/notebook.ipynb`.
+Press `Ctrl-C` in the terminal to stop the server.
+
 If you have some experience with deep neural networks, you may find certain concepts more familiar, as LLMs are built upon these architectures.
 
 This book uses PyTorch to implement the code from scratch without using any external LLM libraries. While proficiency in PyTorch is not a prerequisite, familiarity with PyTorch basics is certainly useful. If you are new to PyTorch, Appendix A provides a concise introduction to PyTorch. Alternatively, you may find my book, [PyTorch in One Hour: From Tensors to Training Neural Networks on Multiple GPUs](https://sebastianraschka.com/teaching/pytorch-1h/), helpful for learning about the essentials.
